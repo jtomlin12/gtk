@@ -1,17 +1,15 @@
 #include <gtkmm.h>
 #include <iostream>
 
-// somehow avoid using absolute paths
-extern const unsigned char _binary__home_parallels_gtk_app_assets_app_glade_start[];
-extern const unsigned char _binary__home_parallels_gtk_app_assets_app_glade_end[];
+extern const unsigned char _binary_app_glade_start[];
+extern const unsigned char _binary_app_glade_end[];
 
 int main(int argc, char *argv[])
 {
   auto app = Gtk::Application::create(argc, argv, "org.gtkmm.examples.base");
 
   auto builder = Gtk::Builder::create();
-  builder->add_from_string(std::string{_binary__home_parallels_gtk_app_assets_app_glade_start, 
-    _binary__home_parallels_gtk_app_assets_app_glade_end});
+  builder->add_from_string(std::string{_binary_app_glade_start, _binary_app_glade_end});
 
   Gtk::Window* win = nullptr;
 
